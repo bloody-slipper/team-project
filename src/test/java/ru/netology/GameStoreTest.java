@@ -55,4 +55,31 @@ public class GameStoreTest {
 
     }
 
+    @Test
+    public void shouldGetMostIfNobody() {
+
+        assertEquals(null, store.getMostPlayer());
+    }
+
+    @Test
+    public void shouldGetMostIfTwoPlayers() {
+
+        store.addPlayTime("Irina47", 0);
+        store.addPlayTime("Kolya55", 1);
+
+        assertEquals("Kolya55", store.getMostPlayer());
+
+    }
+
+    @Test
+    public void shouldGetMostIfThreePlayers() {
+
+        store.addPlayTime("Irina47", 4);
+        store.addPlayTime("Kolya55", 2);
+        store.addPlayTime("Sasha363", 12);
+
+        assertEquals("Sasha363", store.getMostPlayer());
+
+    }
+
 }
